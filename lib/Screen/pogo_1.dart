@@ -19,6 +19,7 @@ class _PogoScreenState extends State<PogoScreen> {
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height / 100;
     var width = MediaQuery.of(context).size.width / 100;
+  
     return Scaffold(
       backgroundColor: backgroudColor,
       body: Column(
@@ -112,117 +113,119 @@ class _PogoScreenState extends State<PogoScreen> {
 
           //Mian Area
           Expanded(
+            
             child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 //form area
-                Expanded(
-                  flex: 3,
-                  child: Container(
-                    color: const Color.fromRGBO(247, 247, 252, 1),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 50, vertical: 35),
-                    child: Column(
-                      children: [
-                        const Align(
-                          alignment: Alignment.bottomRight,
-                          child: Text(
-                            'כל המסלולים',
-                            style: TextStyle(
-                                fontWeight: FontWeight.w100,
-                                fontSize: 25,
-                                letterSpacing: -1),
+                Container(
+                  width: 540,
+                  height: height*100,
+                  
+                  color: const Color.fromRGBO(247, 247, 252, 1),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 30, vertical: 35),
+                  child: ListView(
+                    children: [
+                      const Align(
+                        alignment: Alignment.bottomRight,
+                        child: Text(
+                          'כל המסלולים',
+                          style: TextStyle(
+                              fontWeight: FontWeight.w100,
+                              fontSize: 25,
+                              letterSpacing: -1),
+                        ),
+                      ),
+                      SizedBox(
+                        height: height * 2,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                              flex: 1,
+                              child: InputFeild(
+                                  prefix: Icon(
+                                    Icons.search,
+                                    size: 20,
+                                    color: Colors.grey,
+                                  ),
+                                  hinntText: 'חיפוש מסלול',
+                                  validatior: () {},
+                                  inputController: _searchController)),
+                          SizedBox(
+                            width: width * 1,
                           ),
-                        ),
-                        SizedBox(
-                          height: height * 2,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Expanded(
-                                flex: 1,
-                                child: InputFeild(
-                                    prefix: Icon(
-                                      Icons.search,
-                                      size: 20,
-                                      color: Colors.grey,
-                                    ),
-                                    hinntText: 'חיפוש מסלול',
-                                    validatior: () {},
-                                    inputController: _searchController)),
-                            SizedBox(
-                              width: width * 1,
-                            ),
-                            Expanded(
-                              flex: 1,
-                              child: CustomDropDown(
-                                backgroudColor:
-                                    Color.fromRGBO(236, 236, 242, 1),
-                                onChanged: () {},
-                                prefixIcon: Icon(
-                                  Icons.inbox,
-                                  color: Colors.black,
-                                  size: 18,
-                                ),
+                          Expanded(
+                            flex: 1,
+                            child: CustomDropDown(
+                              backgroudColor:
+                                  Color.fromRGBO(236, 236, 242, 1),
+                              onChanged: () {},
+                              prefixIcon: Icon(
+                                Icons.inbox,
+                                color: Colors.black,
+                                size: 18,
                               ),
                             ),
-                            SizedBox(
-                              width: width * 1,
-                            ),
-                            Expanded(
-                              flex: 1,
-                              child: CustomDropDown(
-                                backgroudColor:
-                                    Color.fromRGBO(236, 236, 242, 1),
-                                onChanged: () {},
-                                prefixIcon: const Icon(
-                                  Icons.person,
-                                  color: Colors.black,
-                                  size: 18,
-                                ),
+                          ),
+                          SizedBox(
+                            width: width * 1,
+                          ),
+                          Expanded(
+                            flex: 1,
+                            child: CustomDropDown(
+                              backgroudColor:
+                                  Color.fromRGBO(236, 236, 242, 1),
+                              onChanged: () {},
+                              prefixIcon: const Icon(
+                                Icons.person,
+                                color: Colors.black,
+                                size: 18,
                               ),
                             ),
-                          ],
-                        ),
-                        //list start
-                        SizedBox(
-                          height: height * 3,
-                        ),
-                        ListBox(
-                          title: 'קו 1 - נצרת',
-                        ),
-                        SizedBox(height: height*1.5,),
-                         ListBox(
-                          title: 'קו 2 - משולש',
-                        ),
-                        SizedBox(height: height*1.5,),
-                             ListBox(
-                          title: 'קו 3 - נצרת',
-                        ),
-                        SizedBox(height: height*1.5,),
-                             ListBox(
-                          title: 'קו41 - נצרת',
-                        ),
-                        SizedBox(height: height*1.5,),
-                             ListBox(
-                          title: 'קו 5 - נצרת',
-                        ),
-                        
-
-
-                        //list end
-                      ],
-                    ),
+                          ),
+                        ],
+                      ),
+                      //list start
+                      SizedBox(
+                        height: height * 3,
+                      ),
+                      ListBox(
+                        title: 'קו 1 - נצרת',
+                      ),
+                      SizedBox(height: height*1.5,),
+                       ListBox(
+                        title: 'קו 2 - משולש',
+                      ),
+                      SizedBox(height: height*1.5,),
+                           ListBox(
+                        title: 'קו 3 - נצרת',
+                      ),
+                      SizedBox(height: height*1.5,),
+                           ListBox(
+                        title: 'קו41 - נצרת',
+                      ),
+                      SizedBox(height: height*1.5,),
+                           ListBox(
+                        title: 'קו 5 - נצרת',
+                      ),
+                      
+                                
+                                
+                      //list end
+                    ],
                   ),
                 ),
 
                 //form area end
                 //map area
-                Expanded(
-                  flex: 7,
+                Container(
+                 width: (width* 100)-540,
                   child: Image.asset(
                     'assets/images/map.png',
-                    fit: BoxFit.cover,
+                    fit: BoxFit.fill,
                   ),
                 ),
                 //map area end
